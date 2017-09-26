@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>boilerplate</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<h1>Users</h1>
+		<table>
+			<thead>
+				<th>&nbsp;</th>
+				<th>Id</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+			</thead>
+			<tbody id="users">
+
+			</tbody>
+		</table>
+		<% if (htmlWebpackPlugin.options.trackJSToken) { %>
+			<!-- BEGIN TRACKJS -->
+			<script async type="text/javascript">window._trackJs = { token: '<%= htmlWebpackPlugin.options.trackJSToken %>' };</script>
+			<script async type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js"></script>
+			<!-- END TRACKJS -->
+		<% } %>
+	</body>
+</html>
