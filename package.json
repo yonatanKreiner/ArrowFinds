@@ -1,5 +1,5 @@
 {
-  "name": "web-boilerplate",
+  "name": "arrowfind",
   "version": "1.0.0",
   "description": "Boilerplate for web development",
   "scripts": {
@@ -25,6 +25,7 @@
   "author": "Yonatan Kreiner",
   "license": "MIT",
   "dependencies": {
+    "angular": "^1.6.6",
     "helmet": "^3.8.1",
     "whatwg-fetch": "1.0.0"
   },
