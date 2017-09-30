@@ -15,6 +15,10 @@ app.use(require('webpack-dev-middleware')(compiler, {
 	publicPath: config.output.publicPath
 }))
 
+app.use('/images', 
+	express.static(path.join(__dirname, '../src/images'))
+)
+
 app.get('/', (req, res) => 	
 	res.sendFile(path.join(__dirname, '../src/index.html'))
 )
