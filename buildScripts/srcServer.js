@@ -23,6 +23,10 @@ app.get('/', (req, res) =>
 	res.sendFile(path.join(__dirname, '../src/index.html'))
 )
 
+app.get('/favicon.ico', (req, res) => 	
+res.sendFile(path.join(__dirname, '../src/images/favicon.ico'))
+)
+
 app.get('/users', (req, res) => {
 	res.json([
 		{"id": 1, "firstName": "Bob", "lastName": "asdf", "email": "asdf"},
