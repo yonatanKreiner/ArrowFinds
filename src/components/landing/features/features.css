@@ -1,0 +1,12 @@
+#features-section {
+	margin: 10em 0;
+}
+
+.feature {
+	max-width: 15em;
+	border-radius: 10%;
+}
+
+.card-img-top {
+	border-radius: 10% 10% 0 0;
+}
