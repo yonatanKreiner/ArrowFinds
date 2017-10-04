@@ -1,5 +1,5 @@
 #features-section {
-	margin: 10em 0;
+	margin: 0 0 10em 0;
 }
 
 .feature {
@@ -10,3 +10,4 @@
 .card-img-top {
 	border-radius: 10% 10% 0 0;
 }
+
