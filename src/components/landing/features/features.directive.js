@@ -1,5 +1,5 @@
-import angular from 'angular'
-import template  from './features.html'
+import angular from 'angular';
+import template  from './features.html';
 
 function features() {
   return {

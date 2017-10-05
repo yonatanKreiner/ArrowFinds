@@ -1,5 +1,5 @@
 import angular from 'angular';
-import template  from './navbar.html'
+import template  from './navbar.html';
 
 function navbar() {
   return {
