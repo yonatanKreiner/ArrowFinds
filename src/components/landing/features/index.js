@@ -1,4 +1,4 @@
-import './features.css'
+import './features.css';
 
 import angular from 'angular';
 

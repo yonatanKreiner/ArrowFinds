@@ -1,5 +1,5 @@
 import angular from 'angular';
-import template  from './landing.html'
+import template  from './landing.html';
 
 function landing() {
   return {

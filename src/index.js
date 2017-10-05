@@ -1,4 +1,4 @@
-import './index.css'
+import './index.css';
 
 import angular from 'angular';
 import uirouter from '@uirouter/angularjs';
