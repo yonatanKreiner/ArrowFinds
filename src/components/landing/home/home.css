@@ -1,20 +1,20 @@
-#home_img{
-	width:100%;
-	background-size:cover;
+#home-img{
+	width: 100%;
+	background-size: cover;
 	max-height: 400px;
 }
 
-#white{
+#home-text {
 	color:white;
 }
 
 .thumbnail {
-    position: relative;
+	position: relative;
 }
 
 .caption {
-    position: absolute;
-    top: 15%;
-    left: 0;
-    width: 100%;
+	position: absolute;
+	top: 15%;
+	left: 0;
+	width: 100%;
 }
