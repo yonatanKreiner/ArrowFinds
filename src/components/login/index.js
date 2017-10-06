@@ -1,8 +1,12 @@
-import './login.css';
+import './login.css'
 
 import angular from 'angular';
+import uirouter from '@uirouter/angularjs';
 
-import loginController from './login.controller';
+import routing from './login.routes';
+import LoginController from './login.controller';
 
-angular.module('arrowfind', [])
-    .controller('loginController', loginController);
+export default angular.module('app.login', [uirouter])
+  .config(routing)
+  .controller('LoginController', LoginController)
+  .name;

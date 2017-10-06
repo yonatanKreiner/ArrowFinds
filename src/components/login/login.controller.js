@@ -1,3 +1,15 @@
+export default class LoginController {
+  constructor() {
+    this.name = 'World';
+  }
+
+  changeName() {
+    this.name = 'angular-tips';
+  }
+}
+
+
+
 // import angular from 'angular';
 // import SweetAlert from 'sweetalert';
 

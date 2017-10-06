@@ -8,5 +8,5 @@ import navbar from './components/navbar';
 import landing from './components/landing';
 import login from './components/login';
 
-angular.module('arrowfind', [uirouter, navbar, landing])
+angular.module('arrowfind', [uirouter, navbar, landing, login])
 	.config(routing);
