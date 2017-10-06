@@ -24,10 +24,8 @@
 	</head>
 	<body>
 		<navbar></navbar>
-		<div class="container">
-			<landing></landing>
-			<ui-view></ui-view>
-		</div>
+		<landing></landing>
+		<ui-view></ui-view>
 		<% if (htmlWebpackPlugin.options.trackJSToken) { %>
 			<!-- BEGIN TRACKJS -->
 			<script async type="text/javascript">window._trackJs = { token: '<%= htmlWebpackPlugin.options.trackJSToken %>' };</script>

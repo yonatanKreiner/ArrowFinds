@@ -1,4 +1,13 @@
-.features-class {
+#features-section {
+	background-color: #ecf0f1;
+	padding: 5%;
+}
+
+.features-title {
+	font-size: 3.5rem;
+	margin-bottom: 10%;
+}
+/* .features-class {
 	margin: 0 0 5em 0;
 }
 
@@ -17,4 +26,4 @@
 
 .features-card-fix{
 	margin-left:8%;
-}
+} */
