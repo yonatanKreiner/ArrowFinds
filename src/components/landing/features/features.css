@@ -1,4 +1,4 @@
-#features-section {
+.features-class {
 	margin: 0 0 5em 0;
 }
 
@@ -11,3 +11,10 @@
 	border-radius: 10% 10% 0 0;
 }
 
+.text-center{
+	text-align: center;
+}
+
+.features-card-fix{
+	margin-left:8%;
+}

@@ -1,0 +1,68 @@
+<!--<section id="login-section">
+</div>
+        <div class="row">
+			    <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3"> 
+     			 <br/>
+            <div class="col-lg-12 text-center" >
+                            <div class="box">
+                <div class="box-icon">
+                <span class="fa fa-4x fa-user"></span>        
+                </div>
+				   			<br/>
+                    <h4 class="info text-center">Login Or User Create</h4>
+				<form id="form" name="setup" class="setup info" enctype="multipart/form-data" method="POST" novalidate>
+
+				<div class="input-group login-max-width" >
+				<span class="input-group-addon" id="login-addon"><i class="fa fa-envelope" id="login-addon"></i></span>
+				<input id="email" type="email" class="form-control email validate valid" name="email" ng-model="email" value="" placeholder="איימל" required>                                        
+
+
+                </div>
+
+				<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+				<input id="password" type="password" class="form-control password validate valid"  name="password" ng-model="password" placeholder="סיסמא" ng-minlength='6' required>
+
+                </div> 
+
+                <center>
+                <div class="input-group text-center" ng-show="msgLogin">
+                    <h3 class="error-show">User Or password are not currect<i class="fa fa-exclamation-triangle"></i></h3>
+                </div>
+                </center>                     
+            <div class="form-group" >
+                <div class="row">
+
+                <div class="col-md-4">
+                </div>
+				<div class="col-md-4 login-flex-display" >
+				<button type="submit" href="#" class="btn btn-primary pull-left"  ng-click="login()"  ng-disabled="setup.password.$error.minlength || setup.password.$invalid || setup.email.$invalid" > Login <i class="fa fa-sign-in"  
+                ></i> </button>
+
+                <button type="submit" ng-disabled="setup.password.$error.minlength || setup.password.$invalid || setup.email.$invalid"  ng-click="createuser()" 
+								href="#" class="btn btn-primary pull-left" >
+                  Register   <i class="fa fa-user-plus"></i></button> 
+								</div>
+                <div class="col-md-4">
+                </div>
+                </div>
+					
+				</div>
+
+				</form>   
+                <div class="row">
+                <div class="col-md-6 col-sm-6">
+                <h5 class="alert alert-success check-login" ng-show="setup.email.$invalid">האיימל אינו תקין</h5> 
+                </div>
+                <div class="col-md-6 col-sm-6">
+            <h5 class="alert alert-success check-login" ng-show="setup.password.$error.minlength || setup.password.$invalid">גודל הסיסמא חייב להיות לפחות 6 אותיות</h5>
+                </div>           
+                </div>  
+            </div>
+            </div>
+                            <br/>
+                <br/>
+			    </div>
+
+        </div>
+</section>-->

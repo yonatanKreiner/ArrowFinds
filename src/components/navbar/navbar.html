@@ -10,16 +10,19 @@
 	<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active">
-				<a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+				<a class="nav-link" href="#" id="homelink">Home<span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#/Features">Features</a>
+				<a class="nav-link" href="#" id="featureslink">Features</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#/Pricing">Pricing</a>
+				<a class="nav-link" href="#" id="pricinglink">Pricing</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#/About">About</a>
+				<a class="nav-link" href="#" id="aboutlink">About</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#/Login" id="loginlink">Login</a>
 			</li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
@@ -28,3 +31,28 @@
 		</form>
 	</div>
 </nav>
+<script>
+
+    function goToByScroll(id){
+          // Reove "link" from the ID
+        id = id.replace("link", "-section");
+          // Scroll
+
+        $('html,body').animate({
+            scrollTop: $("#"+id).offset().top},
+            'slow');
+    }
+
+    $("#navbarsExampleDefault > ul > li > a").click(function(e) { 
+          // Prevent a page reload when a link is pressed
+        e.preventDefault(); 
+
+          // Call the scroll function
+        goToByScroll($(this).attr("id"));           
+    });
+</script>
+
+
+</script>
+
+
