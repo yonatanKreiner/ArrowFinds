@@ -1,10 +1,12 @@
+import template from './login.html';
+
 routes.$inject = ['$stateProvider'];
 
 export default function routes($stateProvider) {
   $stateProvider
-    .state('Login', {
+    .state('login', {
       url: '/Login',
-      template: require('./login.html'),
+      template: template,
       controller: 'LoginController',
       controllerAs: 'login'
     });

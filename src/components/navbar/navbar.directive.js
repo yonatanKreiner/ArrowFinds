@@ -4,7 +4,9 @@ import template  from './navbar.html';
 function navbar() {
   return {
     restrict: 'E',
-    template: template 
+		template: template,
+		controller: 'NavbarController',
+		controllerAs: 'navbar'
   }
 }
 
