@@ -1,12 +1,8 @@
-<h1>Hello world</h1>
-<h2>hey kreiner</h2>
-
-<!--<section id="login-section">
+<section id="login-section">
 </div>
         <div class="row">
-			    <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3"> 
-     			 <br/>
-            <div class="col-lg-12 text-center" >
+					<div class="col-md-3"></div>
+			    <div id="col-md-6" class="fixlogin"> 
                             <div class="box">
                 <div class="box-icon">
                 <span class="fa fa-4x fa-user"></span>        
@@ -17,14 +13,14 @@
 
 				<div class="input-group login-max-width" >
 				<span class="input-group-addon" id="login-addon"><i class="fa fa-envelope" id="login-addon"></i></span>
-				<input id="email" type="email" class="form-control email validate valid" name="email" ng-model="email" value="" placeholder="איימל" required>                                        
+				<input id="email" type="email" class="form-control email validate valid" name="email" ng-model="email" value="" placeholder="Email" required>                                        
 
 
                 </div>
 
 				<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-				<input id="password" type="password" class="form-control password validate valid"  name="password" ng-model="password" placeholder="סיסמא" ng-minlength='6' required>
+				<input id="password" type="password" class="form-control password validate valid"  name="password" ng-model="password" placeholder="Password" ng-minlength='6' required>
 
                 </div> 
 
@@ -39,11 +35,11 @@
                 <div class="col-md-4">
                 </div>
 				<div class="col-md-4 login-flex-display" >
-				<button type="submit" href="#" class="btn btn-primary pull-left"  ng-click="login()"  ng-disabled="setup.password.$error.minlength || setup.password.$invalid || setup.email.$invalid" > Login <i class="fa fa-sign-in"  
+				<button type="submit" href="#" class="btn btn-success"  ng-click="login()"  ng-disabled="setup.password.$error.minlength || setup.password.$invalid || setup.email.$invalid" > Login <i class="fa fa-sign-in"  
                 ></i> </button>
 
                 <button type="submit" ng-disabled="setup.password.$error.minlength || setup.password.$invalid || setup.email.$invalid"  ng-click="createuser()" 
-								href="#" class="btn btn-primary pull-left" >
+								href="#" class="btn btn-success" >
                   Register   <i class="fa fa-user-plus"></i></button> 
 								</div>
                 <div class="col-md-4">
@@ -54,18 +50,14 @@
 
 				</form>   
                 <div class="row">
-                <div class="col-md-6 col-sm-6">
-                <h5 class="alert alert-success check-login" ng-show="setup.email.$invalid">האיימל אינו תקין</h5> 
+                <div class="col-md-6">
+                <h5 class="alert check-login white error-blue" ng-show="setup.email.$invalid">Email is not valid</h5> 
                 </div>
-                <div class="col-md-6 col-sm-6">
-            <h5 class="alert alert-success check-login" ng-show="setup.password.$error.minlength || setup.password.$invalid">גודל הסיסמא חייב להיות לפחות 6 אותיות</h5>
+                <div class="col-md-6">
+            <h5 class="alert check-login white error-blue" ng-show="setup.password.$error.minlength || setup.password.$invalid">Password must be atleast 6 digits</h5>
                 </div>           
                 </div>  
             </div>
             </div>
-                            <br/>
-                <br/>
-			    </div>
-
         </div>
-</section>-->
+</section>

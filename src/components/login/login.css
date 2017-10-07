@@ -55,12 +55,20 @@
 .error-show{
 	color:red;
 }
-.login-max-width{
-	width:100%;
+.error-blue{
+	background-color:lightskyblue;
 }
-#login-addon{
-	width:9.75px;
-}
+
 .login-flex-display{
 	display: flex;
+}
+
+.fixlogin{
+	width:40%;
+}
+
+@media (min-width: 1200px) {
+.fixlogin {
+	margin-left:65px;
+  }
 }

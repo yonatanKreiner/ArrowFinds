@@ -1,10 +1,8 @@
-#pricing-section {
-	padding: 5%;
-}
+
 
 .pricing-title {
 	font-size: 3.5rem;
-	margin: 10% auto;
+	margin: 2% auto;
 }
 
 .card-pricing {
@@ -39,3 +37,7 @@
 .white{
 	color:white;
 }
+
+ .pricing-footer-margin{
+	 margin-bottom: 5%;
+ }
