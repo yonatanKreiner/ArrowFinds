@@ -2,8 +2,8 @@ routes.$inject = ['$stateProvider'];
 
 export default function routes($stateProvider) {
   $stateProvider
-    .state('login', {
-      url: '/',
+    .state('Login', {
+      url: '/Login',
       template: require('./login.html'),
       controller: 'LoginController',
       controllerAs: 'login'
