@@ -65,10 +65,25 @@
 
 .fixlogin{
 	width:40%;
+	margin-top:5em;
+}
+
+.lock-fix{
+	width: 41px;
+}
+
+.right-margin-button{
+	margin-right: 5px;
 }
 
 @media (min-width: 1200px) {
 .fixlogin {
 	margin-left:65px;
+  }
+}
+
+@media (max-width: 680px) {
+.fixlogin {
+	width: 100%;
   }
 }
