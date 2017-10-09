@@ -1,0 +1,71 @@
+<script>
+// ASK kriner how to summon this thing
+function loadSkillgraph() {
+$(".skillData").each(function(index, element) {
+    // element == this
+    var mydata = $(element).data();
+    var cnt = 0;
+
+    //recursive call with a time delay so user can see graph draw.
+    function go() {
+        if (cnt++ < mydata['percent']) {
+            setTimeout(go, 10);
+        }
+        $(element).css('width', cnt + '%');
+
+    }
+
+    go();
+
+});
+
+}
+
+loadSkillgraph();
+</script>
+
+
+<section id="affliate-section">
+   <div class="container">
+		<div class="row">   
+			<div class="col-md-12 col-sm-12">
+				<h1>Welcome to the affiliate page  : {{aff.username}} </h1>
+				<div class="col-md-6 col-sm-6">
+					<h2>Here is your ref code: </h2><div><code><h4>https://arrowfinds.com/aff?ref_id={{aff.yourRef}}</h4></code></div><br/>
+					<h5>You Have : <span style="color:green">{{aff.needpay| currency:"USD$":2}}</span> </h5>
+					<button class="btn btn-primary"><i class="fa fa-credit-card-alt"></i> Checkout</button>
+					<h5><span style="color:red">Only when 10$+</span></h5>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<h4>Precent : {{(aff.profit/ aff.userStage ) * 100 | currency:"%":2}} </h4>
+					<div style="display: flex">
+						<img src="../Images/rewardmoney.png" />
+						<h5 style="margin-top: 10%">{{aff.reward}}</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div id="skillgraph" class="panel panel-default row">
+				<div class='panel-title text-Left '></div>
+				<div class='row skill-row'>
+					<span class='skillLabel'>To Next level: </span><code>More - {{(aff.userStage - aff.profit) | currency:"USD$":2}} To go!</code>
+					<br/>
+					<span class='skillData-Wrapper'>
+					<span class='skillData bg' style="background-color: green" data-percent='100'>{{aff.level}} - {{(aff.profit/aff.userStage)*100 | currency:"%":2}}</span></span>
+				</div>
+				<div class='row skill-row'>
+					<span class='skillLabel'>Total Sold:</span><code>Your Profit - {{aff.needpay | currency:"USD$":2}}</code>
+					<br/>
+					<span class='skillData-Wrapper'>
+					<span class='skillData bg-rust' data-percent='100'>{{aff.profit  | currency:"USD$":2}}</span></span>
+				</div>
+				<div class='row skill-row'>
+					<span class='skillLabel'>Ref Joined Count:</span>
+					<span class='skillData-Wrapper'>
+					<span class='skillData bg-blue' data-percent='100'>RefCounts - {{aff.refcount}}</span></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
