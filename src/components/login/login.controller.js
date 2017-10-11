@@ -15,7 +15,7 @@ export default class LoginController {
 			if(response.data == "true")
 			{
 					// SweetAlert Msg User-Welcome
-					this.$window.location.href = '/#!/monitor';
+					this.$window.location.href = '/monitor';
 			}
 			else
 			{
@@ -33,7 +33,7 @@ export default class LoginController {
 		}).then(function(response) {
 			if(response.data == "true")
 			{
-					this.$window.location.href = '/#!/monitor';
+					this.$window.location.href = '/monitor';
 			}
 			else
 			{
