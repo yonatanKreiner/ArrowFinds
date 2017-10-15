@@ -1,9 +1,10 @@
 export default class NavbarController {
-  constructor($location, $anchorScroll, http, window) {
+  constructor($location, $anchorScroll, $http) {
 		this.location = $location;
 		this.scroll = $anchorScroll;
-		this.$http = http;
-		this.$window = window;
+		this.http = $http;
+		this.LoginStatus = 'Login';
+		this.loggedIn = false;
   }
 
   gotoAnchor(id) {
@@ -14,22 +15,17 @@ export default class NavbarController {
 		}
 	}
 
-	// Function That only uses in the navbar of user login
-	logout()
-	{
-			this.$http.get('/api/logout', {
-			headers: {}
-			}
-			)
-			.then(function(response) {
-				this.$window.location.href = "/login"
-			}, function(x) {
-				alert(x);
-			});
+	login() {
+		if (this.loggedIn) {
+			this.location.path("/");
+			this.LoginStatus = 'Login';
+			this.loggedIn = false;
+		} else {
+			this.location.path("/Login");
+			this.LoginStatus = 'Logout';
+			this.loggedIn = true;
+		}
 	}
-
 }
 
-
-
-NavbarController.$inject = ['$location', '$anchorScroll','$http','$window'];
+NavbarController.$inject = ['$location', '$anchorScroll', '$http'];

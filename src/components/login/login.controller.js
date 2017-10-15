@@ -1,108 +1,45 @@
+import {createUser} from '../../api/usersApi';
+
 export default class LoginController {
-  constructor(http,window) {
+  constructor($http, $location) {
     this.msgLogin = false;
 		this.urlTest = 'http://127.0.0.1:5000';
-		this.$http = http;
-		this.$window = window;
+		this.http = $http;
+		this.location = $location;
   }
 
-	createuser(){
-		this.$http.get(this.urlTest + '/api/CreateUser', {
-				params: {user: this.email,password: this.password},
-				headers: {}
-		}).then(function(response) {
-			// Request completed successfully
-			if(response.data == "true")
-			{
-					// SweetAlert Msg User-Welcome
-					this.$window.location.href = '/monitor';
-			}
-			else
-			{
-			// SweetAlert Error;
-			}
-		}, function(x) {
-			alert(x);
+	createUser(){
+		const user = {
+			email: this.email,
+			password: this.password
+		};
+
+		createUser(user).then(
+			result => {
+			console.log(result);
+			this.location.path('/monitor');
+		}, err => {
+			console.log(err);
 		});
 	}
 
 	login(){
-		this.$http.get(this.urlTest + '/api/Login', {
+		this.http.get(this.urlTest + '/api/Login', {
 			params: {user: this.email,password: this.password},
 			headers: {}
 		}).then(function(response) {
 			if(response.data == "true")
 			{
-					this.$window.location.href = '/monitor';
+					this.location.path('/monitor');
 			}
 			else
 			{
 					this.msgLogin = true;
 			}   
-		}, function(x) {
-			alert(x);
+		}, err => {
+			console.log(err);
 		});
 	}
-
 }
 
-LoginController.$inject = ['$http','$window'];
-
-
-
-// import angular from 'angular';
-// import SweetAlert from 'sweetalert';
-
-
-// angular.module('arrowfind', [uirouter, navbar, landing,login]).controller('loginController', ['$rootScope','$scope','$http','SweetAlert','$window',function ($rootScope,$scope,$http, SweetAlert,$window) {
-
-//     $scope.msgLogin = false;
-
-//     $scope.createuser = function()
-//     {
-//         $http.get('/api/CreateUser', {
-//             params:  {user: $scope.email,password: $scope.password},
-//             headers: {}
-//         }
-//         )
-//         .then(function(response) {
-//         // Request completed successfully
-//             if(response.data == "true")
-//             {
-//                 window.swal("כל הכבוד","היוזר " + $scope.email+" נוצר בהצלחה", "success");
-//                 $window.location.href = '/#!/monitor';
-//             }
-//             else
-//             {
-//                  window.swal("היי היוזר כבר קיים","אנא תבחרו יוזר אחר", "error");
-//             }
-            
-//         }, function(x) {
-//         // Request error
-//         });
-//     };
-//     $scope.login = function()
-//     {
-//         $http.get('/api/Login', {
-//             params:  {user: $scope.email,password: $scope.password},
-//             headers: {}
-//         }
-//         )
-//         .then(function(response) {
-//         // Request completed successfully
-//             if(response.data == "true")
-//             {
-
-//                 $window.location.href = '/#!/monitor';
-//             }
-//             else
-//             {
-//                   $scope.msgLogin = true;
-//             }
-            
-//         }, function(x) {
-//         // Request error
-//         });
-//     };
-
-// }]);
+LoginController.$inject = ['$http', '$location'];
