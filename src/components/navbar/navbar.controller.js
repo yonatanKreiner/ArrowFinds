@@ -19,11 +19,9 @@ export default class NavbarController {
 		if (this.loggedIn) {
 			this.location.path("/");
 			this.LoginStatus = 'Login';
-			this.loggedIn = false;
 		} else {
 			this.location.path("/Login");
-			this.LoginStatus = 'Logout';
-			this.loggedIn = true;
+			// Save the User when login - at the login controller
 		}
 	}
 }
