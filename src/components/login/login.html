@@ -8,24 +8,24 @@
 				</div>
 				<br/>
 				<h4 class="info text-center">Login Or Create User</h4>
-				<form id="form" name="setup" class="setup info">
+				<form id="form" name="login.sign" class="setup info" novalidate>
 					<div class="input-group login-max-width">
 						<span class="input-group-addon" id="login-addon">
 							<i class="fa fa-envelope" id="login-addon"></i>
 						</span>
-						<input id="email" type="email" class="form-control email validate valid"
-							ng-model="credentials.email" placeholder="Email" required>
+						<input id="login.credentials.email" type="email" class="form-control email validate valid"
+							name="login.credentials.email" ng-model="login.credentials.email" placeholder="Email" required>
 					</div><br />
 					<div class="input-group">
 						<span class="input-group-addon lock-fix">
 							<i class="fa fa-lock"></i>
 						</span>
-						<input id="password" type="password" class="form-control password validate valid"
-							ng-model="credentials.password" placeholder="Password" ng-minlength="6" required>
+						<input id="login.credentials.password" type="password" class="form-control password validate valid"
+						  name="login.credentials.password" ng-model="login.credentials.password" placeholder="Password" ng-minlength="6" required>
 					</div>
 					<center>
-						<div class="input-group text-center" ng-show="error">
-							<h3 class="error-show">{{error}}<i class="fa fa-exclamation-triangle"></i></h3>
+						<div class="input-group text-center" ng-show="login.error">
+							<h3 class="error-show">{{login.error}}<i class="fa fa-exclamation-triangle"></i></h3>
 						</div>
 					</center>
 					<br/>
@@ -34,12 +34,12 @@
 							<div class="col-md-4">
 							</div>
 							<div class="col-md-4 login-flex-display">
-								<button type="submit" class="btn btn-success right-margin-button" ng-click="signIn(credentials)" 
-									ng-disabled="setup.password.$error.minlength || setup.password.$invalid || setup.email.$invalid">Login 
+								<button type="submit" class="btn btn-success right-margin-button" ng-click="login.signIn(login.credentials)" 
+									ng-disabled="sign.login.credentials.password.$error.minlength || sign.login.credentials.password.$invalid || sign.login.credentials.email.$invalid">Login 
 									<i class="fa fa-sign-in"></i>
 								</button>
-								<button type="submit" class="btn btn-success" ng-click="signUp(credentials)" 
-									ng-disabled="setup.password.$error.minlength || setup.password.$invalid || setup.email.$invalid">Register
+								<button type="submit" class="btn btn-success" ng-click="login.signUp(login.credentials)" 
+									ng-disabled="sign.login.credentials.password.$error.minlength || sign.login.credentials.password.$invalid || sign.login.credentials.email.$invalid">Register
 									<i class="fa fa-user-plus"></i>
 								</button>
 							</div>
@@ -50,10 +50,10 @@
 				</form>
 				<div class="row">
 					<div class="col-md-6">
-						<h5 class="alert check-login white error-blue" ng-show="setup.email.$invalid">Email is not valid</h5>
+						<h5 class="alert check-login white error-blue" ng-show="sign.credentials.email.$invalid">Email is not valid</h5>
 					</div>
 					<div class="col-md-6">
-						<h5 class="alert check-login white error-blue" ng-show="setup.password.$error.minlength || setup.password.$invalid">Password must be atleast 6 digits</h5>
+						<h5 class="alert check-login white error-blue" ng-show="sign.credentials.password.$error.minlength || sign.credentials.password.$invalid">Password must be atleast 6 digits</h5>
 					</div>
 				</div>
 			</div>
