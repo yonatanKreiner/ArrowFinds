@@ -11,6 +11,12 @@ import navbar from './components/navbar';
 import landing from './components/landing';
 import login from './components/login';
 
-angular.module('arrowfind', [uirouter, ngstorage.name, navbar, landing, login])
+// Logged User
+import affiliate from './components/affiliate'
+import monitor from './components/monitor'
+import deals from './components/deals'
+
+
+angular.module('arrowfind', [uirouter, ngstorage.name, navbar, landing, login,monitor,affiliate,deals])
 	.config(routing)
 	.run(run);
