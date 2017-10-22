@@ -6,16 +6,18 @@ class Authentication {
 		this.localStorage = $localStorage;
   }
 
-  login(email, password, callback) {
-    this.http.post('http://127.0.0.1:5000/api/Login', { email: email, password: password})
-			.success(response => {
+  login(email, password) {
+		return this.http.post('http://127.0.0.1:5000/api/Login', { email: email, password: password})
+			.then(response => {
 				if (response.token) {
 					this.localStorage.currentUser = { email: email, token: response.token };
 					this.http.defaults.headers.common.Authorization = 'Bearer ' + response.token;
-					callback(true);
+					return true;
 				} else {
-					callback(false);
+					return false;
 				}
+			}, err => {
+				console.log(err.status);
 			});
 	}
 

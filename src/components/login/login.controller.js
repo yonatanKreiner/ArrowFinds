@@ -12,19 +12,24 @@ export default class LoginController {
 			result => {
 				console.log(result);
 				this.location.path('/monitor');
-		}, err => {
-			console.log(err);
-		});
+			}, err => {
+				console.log(err);
+			}
+		);
 	}
 
 	signIn(credentials){
-		this.authentication.login(credentials.email, credentials.password, result => {
-			if (result === true) {
-				this.location.path('/monitor');
-			} else {
-				this.error = 'Email or password is incorrect';
+		this.authentication.login(credentials.email, credentials.password).then(
+			result => {
+				if (result === true) {
+					this.location.path('/monitor');
+				} else {
+					this.error = 'Email or password is incorrect';
+				}
+			}, err => {
+				console.log('error status: ' + err.status);
 			}
-		});
+		);
 	}
 }
 
