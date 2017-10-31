@@ -1,62 +1,59 @@
 <section id="login-section">
-	<div class="row">
-		<div class="col-md-3"></div>
-		<div id="col-md-6" class="fixlogin">
-			<div class="box">
-				<div class="box-icon">
-					<span class="fa fa-4x fa-user"></span>
-				</div>
-				<br/>
-				<h4 class="info text-center">Login Or Create User</h4>
-				<form id="form" name="login.sign" class="setup info" novalidate>
-					<div class="input-group login-max-width">
-						<span class="input-group-addon" id="login-addon">
-							<i class="fa fa-envelope" id="login-addon"></i>
-						</span>
-						<input id="email" type="email" class="form-control email validate valid"
-							name="email" ng-model="login.credentials.email" placeholder="Email" required>
-					</div><br />
-					<div class="input-group">
-						<span class="input-group-addon lock-fix">
-							<i class="fa fa-lock"></i>
-						</span>
-						<input id="password" type="password" class="form-control password validate valid"
-						  name="password" ng-model="login.credentials.password" placeholder="Password" ng-minlength="6" required>
+	<div class="container">
+		<div class="row">
+			<div class="col-2"></div>
+			<div id="col-8">
+				<div class="box">
+					<div class="box-icon">
+						<div class="fa fa-4x fa-user"></div>
 					</div>
-					<center>
-						<div class="input-group text-center" ng-show="login.error">
-							<h3 class="error-show">{{login.error}}<i class="fa fa-exclamation-triangle"></i></h3>
-						</div>
-					</center>
-					<br/>
-					<div class="form-group">
-						<div class="row">
-							<div class="col-md-4">
+					<h4 class="title text-center">Register / Login User</h4>
+					<form name="sign" novalidate>
+						<div class="input-group form-row input">
+							<div class="input-group-addon">
+								<i class="fa fa-envelope"></i>
 							</div>
-							<div class="col-md-4 login-flex-display">
-								<button type="submit" class="btn btn-success right-margin-button" ng-click="login.signIn(login.credentials)" 
-									ng-disabled="sign.login.credentials.password.$error.minlength || sign.login.credentials.password.$invalid || sign.login.credentials.email.$invalid">Login 
+							<input type="email" name="email" class="form-control email validate valid"
+								ng-model="login.email" placeholder="Email" required>
+							<div class="invalid-feedback" ng-show="sign.email.$invalid">
+								Email is not valid
+							</div>
+						</div>
+						<div class="input-group form-row input">
+							<div class="input-group-addon lock">
+								<i class="fa fa-lock"></i>
+							</div>
+							<input type="password" name="password" class="form-control password validate valid"
+								ng-model="login.password" placeholder="Password" ng-minlength="6" required>
+							<div class="invalid-feedback" ng-show="sign.password.$error.minlength || sign.password.$invalid">
+								Password must be at least 6 digits
+							</div>
+						</div>
+						<div class="text-center" ng-show="login.error">
+							<h3 class="error-show"><i class="fa fa-exclamation-triangle"></i>{{login.error}}</h3>
+						</div>
+						<br/>
+						<div class="form-group form-row">
+							<div class="col-1"></div>
+							<div class="col-4">
+								<button type="submit" class="btn btn-success" ng-click="login.signIn(login.email, login.password)" 
+									ng-disabled="sign.password.$error.minlength || sign.password.$invalid || sign.email.$invalid">Login 
 									<i class="fa fa-sign-in"></i>
 								</button>
-								<button type="submit" class="btn btn-success" ng-click="login.signUp(login.credentials)" 
-									ng-disabled="sign.login.credentials.password.$error.minlength || sign.login.credentials.password.$invalid || sign.login.credentials.email.$invalid">Register
+							</div>
+							<div class="col-2"></div>
+							<div class="col-4">
+								<button type="submit" class="btn btn-success" ng-click="login.signUp(login.email, login.password)" 
+									ng-disabled="sign.password.$error.minlength || sign.password.$invalid || sign.email.$invalid">Register
 									<i class="fa fa-user-plus"></i>
 								</button>
 							</div>
-							<div class="col-md-4">
-							</div>
+							<div class="col-1"></div>
 						</div>
-					</div>
-				</form>
-				<div class="row">
-					<div class="col-md-6">
-						<h5 class="alert check-login white error-blue" ng-show="sign.credentials.email.$invalid">Email is not valid</h5>
-					</div>
-					<div class="col-md-6">
-						<h5 class="alert check-login white error-blue" ng-show="sign.credentials.password.$error.minlength || sign.credentials.password.$invalid">Password must be atleast 6 digits</h5>
-					</div>
+					</form>
 				</div>
 			</div>
+			<div class="col-2"></div>
 		</div>
 	</div>
 </section>

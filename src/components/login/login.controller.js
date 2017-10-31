@@ -1,4 +1,4 @@
-import {createUser} from '../../api/usersApi';
+// import {createUser} from '../../api/usersApi';
 
 export default class LoginController {
   constructor($location, authentication) {
@@ -7,19 +7,20 @@ export default class LoginController {
     this.error = '';
   }
 
-	signUp(credentials){
-		createUser(credentials).then(
-			result => {
-				console.log(result);
-				this.location.path('/monitor');
-			}, err => {
-				console.log(err);
-			}
-		);
+	signUp(email, password){
+		// createUser(email, password).then(
+		// 	result => {
+		// 		console.log(result);
+		// 		this.location.path('/monitor');
+		// 	}, err => {
+		// 		console.log(err);
+		// 	}
+		// );
+		console.log(email + password)
 	}
 
-	signIn(credentials){
-		this.authentication.login(credentials.email, credentials.password).then(
+	signIn(email, password){
+		this.authentication.login(email, password).then(
 			result => {
 				if (result === true) {
 					this.location.path('/monitor');

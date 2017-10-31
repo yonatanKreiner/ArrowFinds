@@ -48,7 +48,7 @@ export default {
 			inject: 'head',
 			// Properties defined here are available in index.html
 			// using htmlWebpackPlugin.options.varName
-			googleAnalyticsToken: 'UA-104454728-2',
+			googleAnalyticsToken: 'UA-108800671-1',
 			trackJSToken: 'c052939146f74fefbd3b4564797c0b10'
 		}),
 

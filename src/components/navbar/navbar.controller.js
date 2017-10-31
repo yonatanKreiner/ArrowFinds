@@ -7,21 +7,21 @@ export default class NavbarController {
 		this.loggedIn = false;
   }
 
-  gotoAnchor(id) {
-		if (this.location.hash() !== id) {
-			this.location.hash(id);
-		} else {
-			this.scroll();
-		}
-	}
+  // gotoAnchor(id) {
+	// 	if (this.location.hash() !== id) {
+	// 		this.location.hash(id);
+	// 	} else {
+	// 		this.scroll();
+	// 	}
+	// }
 
 	login() {
 		if (this.loggedIn) {
-			this.location.path("/");
+			this.location.path('/');
 			this.LoginStatus = 'Login';
 		} else {
-			this.location.path("/Login");
-			// Save the User when login - at the login controller
+			this.location.hash('');
+			this.location.path('/Login');
 		}
 	}
 }
