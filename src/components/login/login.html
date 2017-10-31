@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-2"></div>
-			<div id="col-8">
+			<div class="col-8">
 				<div class="box">
 					<div class="box-icon">
 						<div class="fa fa-4x fa-user"></div>
@@ -34,21 +34,19 @@
 						</div>
 						<br/>
 						<div class="form-group form-row">
-							<div class="col-1"></div>
-							<div class="col-4">
+							<div class="col-4">	</div>									
+							<div class="col-2">
 								<button type="submit" class="btn btn-success" ng-click="login.signIn(login.email, login.password)" 
 									ng-disabled="sign.password.$error.minlength || sign.password.$invalid || sign.email.$invalid">Login 
 									<i class="fa fa-sign-in"></i>
 								</button>
 							</div>
-							<div class="col-2"></div>
-							<div class="col-4">
+							<div class="col-2">
 								<button type="submit" class="btn btn-success" ng-click="login.signUp(login.email, login.password)" 
 									ng-disabled="sign.password.$error.minlength || sign.password.$invalid || sign.email.$invalid">Register
 									<i class="fa fa-user-plus"></i>
 								</button>
 							</div>
-							<div class="col-1"></div>
 						</div>
 					</form>
 				</div>
