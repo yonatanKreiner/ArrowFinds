@@ -1,5 +1,6 @@
 import angular from 'angular';
 import template  from './pricing.html';
+import price from './price'
 
 function pricing() {
   return {
@@ -8,6 +9,6 @@ function pricing() {
   }
 }
 
-export default angular.module('directives.pricing', [])
+export default angular.module('directives.pricing', [price])
   .directive('pricing', pricing)
   .name;
