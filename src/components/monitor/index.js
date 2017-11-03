@@ -1,4 +1,4 @@
-import './monitor.css'
+import './monitor.css';
 
 import angular from 'angular';
 import uirouter from '@uirouter/angularjs';
