@@ -3,39 +3,6 @@
 	margin: 8% auto;
 }
 
-.card-pricing {
-	color: white;
-	padding: 0;
+.pricing-footer-margin{
+	margin-bottom: 5%;
 }
-
-.card-pricing-header {
-	background-color: #2c3e50;
-	padding: 5% 0;
-}
-
-.card-pricing-body {
-	background-color: #f0f0f0;
-	color: #777777;
-	padding: 0;
-}
-
-.card-pricing-body > h4 {
-	margin: 4% 0;
-	font-weight: bold;
-}
-
-.card-pricing-footer {
-	background-color: #f0f0f0;
-}
-
-.card-pricing-button {
-	background-color: #2c3e50;
-}
-
-.white{
-	color:white;
-}
-
- .pricing-footer-margin{
-	 margin-bottom: 5%;
- }
