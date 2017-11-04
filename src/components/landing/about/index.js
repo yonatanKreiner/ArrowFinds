@@ -5,5 +5,5 @@ import angular from 'angular';
 import about from './about.directive';
 import card from './card';
 
-export default angular.module('arrowfind.about', [about, card])
+export default angular.module('arrowfinds.about', [about, card])
   .name;

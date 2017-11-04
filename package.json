@@ -1,5 +1,5 @@
 {
-  "name": "arrowfind",
+  "name": "arrowfinds",
   "version": "1.0.0",
   "description": "Dropshipping products finder",
   "scripts": {
@@ -8,7 +8,7 @@
     "lint": "esw webpack.config.* src buildScripts --color",
     "lint:watch": "yarn run lint --watch",
     "security-check": "nsp check",
-    "localtunnel": "lt --port 3000 --subdomain arrowfind",
+    "localtunnel": "lt --port 3000 --subdomain arrowfinds",
     "share": "npm-run-all --parallel open:src localtunnel",
     "generate-mock-data": "babel-node buildScripts/generateMockData",
     "prestart-mockapi": "yarn run generate-mock-data",

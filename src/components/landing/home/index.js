@@ -4,5 +4,5 @@ import angular from 'angular';
 
 import home from './home.directive';
 
-export default angular.module('arrowfind.home', [home])
+export default angular.module('arrowfinds.home', [home])
   .name;

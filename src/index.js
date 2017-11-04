@@ -15,6 +15,6 @@ import monitor from './components/monitor';
 import deals from './components/deals';
 
 
-angular.module('arrowfind', [uirouter, ngstorage.name, navbar, landing, login, monitor, affiliate, deals])
+angular.module('arrowfinds', [uirouter, ngstorage.name, navbar, landing, login, monitor, affiliate, deals])
 	.config(routing)
 	.run(run);

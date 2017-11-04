@@ -9,7 +9,7 @@ import features from './features';
 import pricing from './pricing';
 import about from './about';
 
-export default angular.module('arrowfind.landing', [uirouter, home, features, pricing, about])
+export default angular.module('arrowfinds.landing', [uirouter, home, features, pricing, about])
 	.config(routing)
 	.name;
 
