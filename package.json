@@ -20,19 +20,23 @@
     "postbuild": "babel-node buildScripts/distServer.js",
     "deploy": "surge ./dist"
   },
+  "engines": {
+    "node": "^8.9.0",
+    "yarn": "^1.1.0"
+  },
   "author": "Yonatan Kreiner",
   "license": "MIT",
   "dependencies": {
     "@uirouter/angularjs": "^1.0.6",
     "angular": "^1.6.6",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
     "helmet": "^3.8.1",
     "ngstorage": "^0.3.11",
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
-    "babel-cli": "6.16.0",
-    "babel-core": "6.17.0",
-    "babel-loader": "6.2.5",
+    "babel-loader": "^7.1.2",
     "babel-preset-latest": "6.16.0",
     "babel-register": "6.16.3",
     "chai": "3.5.0",

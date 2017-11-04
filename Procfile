@@ -1,1 +1,1 @@
-web: node buildScripts/distServer.js
+web: yarn build
