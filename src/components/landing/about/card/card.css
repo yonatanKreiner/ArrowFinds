@@ -69,6 +69,7 @@
 	margin: -55px auto 0;
 	overflow: hidden;
 	width: 120px;
+	height: 124px;	
 }
 
 .card .user img {
@@ -108,7 +109,7 @@
 	color: #999999;
 	margin: 30px 0 0;
 	padding: 10px 0 0;
-	text-align: center;
+	text-align: center;	
 }
 
 .card .footer .social-links {
@@ -166,6 +167,10 @@
 	color: #777777;
 }
 
+.card .back .footer {
+	margin-top: 70px;
+}
+	
 /* Fix bug for IE */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 	.front,
