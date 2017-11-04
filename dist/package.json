@@ -1,0 +1,10 @@
+{
+	"name": "arrowfinds",
+	"version": "1.0.0",
+	"description": "dropshipping products finder",
+	"author": "Yonatan Kreiner",
+	"private": true,
+	"scripts": {
+		"postinstall": "yarn add express"
+	}
+ }

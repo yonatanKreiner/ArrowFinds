@@ -59,6 +59,3 @@ typings/
 
 # mock db file
 db.json
-
-# dist folder
-dist
