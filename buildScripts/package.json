@@ -5,6 +5,6 @@
 	"author": "Yonatan Kreiner",
 	"private": true,
 	"scripts": {
-		"start": "node server.js"
+		"postinstall": "npm install express"
 	}
  }
