@@ -4,12 +4,7 @@
 	"description": "dropshipping products finder",
 	"author": "Yonatan Kreiner",
 	"private": true,
-	"engines": {
-    "node": "^8.9.0",
-    "npm": "^5.3.0",
-    "yarn": "^1.1.0"
-  },
 	"scripts": {
-		"start": "node server.js"
+		"postinstall": "yarn add express"
 	}
  }
