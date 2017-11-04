@@ -5,6 +5,10 @@
 	"author": "Yonatan Kreiner",
 	"private": true,
 	"scripts": {
-		"postinstall": "npm install express"
+		"express": "npm install express",
+		"path": "npm install path",
+		"compression": "npm install compression",
+		"helmet": "npm install helmet",
+		"postinstall": "npm-run-all express path compression helmet"
 	}
  }
