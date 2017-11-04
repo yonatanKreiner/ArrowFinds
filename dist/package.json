@@ -10,6 +10,6 @@
     "yarn": "^1.1.0"
   },
 	"scripts": {
-		"postinstall": "yarn add express"
+		"start": "node server.js"
 	}
  }
