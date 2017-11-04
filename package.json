@@ -14,8 +14,10 @@
     "prestart-mockapi": "yarn run generate-mock-data",
     "start-mockapi": "json-server --watch src/api/db.json --port 3001",
     "clean-dist": "rimraf ./dist && mkdir dist",
+    "move-scripts": "cpx ./buildScripts/package.json ./dist && cpx ./buildScripts/server.js ./dist",
     "move-images": "mkdir dist\\images && cpx ./src/images/*.* ./dist/images",
-    "prebuild": "npm-run-all clean-dist move-images lint",
+    "move-build-files": "npm-run-all --parallel move-scripts move-images",
+    "prebuild": "npm-run-all clean-dist move-build-files lint",
     "build": "babel-node buildScripts/build.js",
     "postbuild": "babel-node buildScripts/distServer.js",
     "deploy": "surge ./dist"
@@ -37,7 +39,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
+    "babel-loader": "6.2.5",
     "babel-preset-latest": "6.16.0",
     "babel-register": "6.16.3",
     "chai": "3.5.0",
