@@ -9,6 +9,7 @@
 		"path": "npm install path",
 		"compression": "npm install compression",
 		"helmet": "npm install helmet",
-		"postinstall": "npm-run-all express path compression helmet"
+		"run-all": "npm install npm-run-all",
+		"postinstall": "run-all && npm-run-all express path compression helmet"
 	}
  }
