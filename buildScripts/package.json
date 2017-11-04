@@ -5,6 +5,6 @@
 	"author": "Yonatan Kreiner",
 	"private": true,
 	"scripts": {
-		"postinstall": "yarn add express"
+		"start": "node server.js"
 	}
  }
