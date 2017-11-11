@@ -21,6 +21,6 @@ function card() {
   }
 }
 
-export default angular.module('directives.card', [])
+export default angular.module('directives.about.card', [])
   .directive('card', card)
   .name;

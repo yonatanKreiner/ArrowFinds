@@ -15,6 +15,6 @@ function price() {
   }
 }
 
-export default angular.module('directives.price', [])
+export default angular.module('directives.pricing.price', [])
   .directive('price', price)
   .name;

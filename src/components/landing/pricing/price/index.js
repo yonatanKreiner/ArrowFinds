@@ -4,5 +4,5 @@ import angular from 'angular';
 
 import price from './price.directive';
 
-export default angular.module('arrowfinds.price', [price])
+export default angular.module('arrowfinds.pricing.price', [price])
   .name;
