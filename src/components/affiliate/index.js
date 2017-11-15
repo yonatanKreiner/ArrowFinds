@@ -1,4 +1,4 @@
-import './affiliate.css'
+import './affiliate.css';
 
 import angular from 'angular';
 import uirouter from '@uirouter/angularjs';

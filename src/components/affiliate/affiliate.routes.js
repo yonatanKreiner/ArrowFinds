@@ -5,9 +5,9 @@ routes.$inject = ['$stateProvider'];
 export default function routes($stateProvider) {
   $stateProvider
     .state('affiliate', {
-      url: '/Affiliate',
+      url: '/affiliate',
       template: template,
       controller: 'AffiliateController',
-      controllerAs: 'aff'
+      controllerAs: 'affiliate'
     });
 }

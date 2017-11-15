@@ -6,11 +6,11 @@ export default function run($rootScope, $http, $location, $localStorage) {
 	}
 
 	$rootScope.$on('$locationChangeStart', (event, next, current) => { //eslint-disable-line no-unused-vars
-		const publicPages = ['/', '/Features', '/Pricing', '/About', '/Login'];
+		const publicPages = ['/', '/features', '/pricing', '/about', '/login'];
 		let restrictedPage = publicPages.indexOf($location.path()) === -1;
 
 		if (restrictedPage && !$localStorage.currentUser) {
-			$location.path('/Login');
+			$location.path('/login');
 		}
 	});
 }

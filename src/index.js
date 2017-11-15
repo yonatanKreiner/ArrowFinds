@@ -10,8 +10,8 @@ import run from './index.run';
 import navbar from './components/navbar';
 import landing from './components/landing';
 import login from './components/login';
-import affiliate from './components/affiliate';
 import monitor from './components/monitor';
+import affiliate from './components/affiliate';
 import deals from './components/deals';
 
 

@@ -5,7 +5,7 @@ routes.$inject = ['$stateProvider'];
 export default function routes($stateProvider) {
 	$stateProvider
 		.state('monitor', {
-			url: '/Monitor',
+			url: '/monitor',
 			template: template,
 			controller: 'MonitorController',
 			controllerAs: 'monitor'
