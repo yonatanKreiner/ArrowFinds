@@ -8,15 +8,18 @@ export default class LoginController {
   }
 
 	signUp(email, password){
-		// createUser(email, password).then(
-		// 	result => {
-		// 		console.log(result);
-		// 		this.location.path('/monitor');
-		// 	}, err => {
-		// 		console.log(err);
-		// 	}
-		// );
-		console.log(email + password)
+		this.authentication.register(email, password).then(
+			result => {
+				if (result === true) {
+					this.location.path('/monitor');
+				} else {
+					this.error = 'Email or password is incorrect';
+				}
+			}, err => {
+				this.error = 'Could not get to server. Please try again';
+				console.log('error status: ' + err.status);
+			}
+		);
 	}
 
 	signIn(email, password){

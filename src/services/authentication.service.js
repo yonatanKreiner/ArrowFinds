@@ -4,10 +4,24 @@ class Authentication {
   constructor($http, $localStorage) {
 		this.http = $http;
 		this.localStorage = $localStorage;
-  }
+		this.api = 'http://127.0.0.1:5000/api/'
+	}
+	
+	register(email, password) {
+		return this.http.post(this.api + 'users', { email: email, password: password})
+		.then(response => {
+			if (response.data) {
+				return true;
+			} else {
+				return false;
+			}
+		}, err => {
+			console.log(err.status);
+		});
+	}
 
   login(email, password) {
-		return this.http.post('http://127.0.0.1:5000/api/Login', { email: email, password: password})
+		return this.http.post(this.api + 'Login', { email: email, password: password})
 			.then(response => {
 				if (response.token) {
 					this.localStorage.currentUser = { email: email, token: response.token };
