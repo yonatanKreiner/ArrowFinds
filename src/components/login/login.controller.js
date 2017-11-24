@@ -10,14 +10,12 @@ export default class LoginController {
 	signUp(email, password){
 		this.authentication.register(email, password).then(
 			result => {
-				if (result === true) {
-					this.location.path('/monitor');
+				if (result) {
+					this.window.ga('send', 'event', 'Users', 'register');
+					this.error = 'An email was sent to your address';
 				} else {
-					this.error = 'Email or password is incorrect';
+					this.error = 'Could not create user. Please try again';
 				}
-			}, err => {
-				this.error = 'Could not get to server. Please try again';
-				console.log('error status: ' + err.status);
 			}
 		);
 	}
@@ -25,13 +23,11 @@ export default class LoginController {
 	signIn(email, password){
 		this.authentication.login(email, password).then(
 			result => {
-				if (result === true) {
+				if (result) {
 					this.location.path('/monitor');
 				} else {
 					this.error = 'Email or password is incorrect';
 				}
-			}, err => {
-				console.log('error status: ' + err.status);
 			}
 		);
 	}
