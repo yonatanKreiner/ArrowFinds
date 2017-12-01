@@ -5,18 +5,18 @@ class Authentication {
 		this.http = $http;
 		this.window = $window;
 		this.localStorage = $localStorage;
-		this.api = 'http://127.0.0.1:5000/api/'
+		this.api = 'http://127.0.0.1:5000/'
 	}
 	
 	register(email, password) {
 		return this.http.post(this.api + 'users', { email: email, password: password})
-		.then(response => {
+		.then(response => { //eslint-disable-line no-unused-vars
 			return true;
 		}, err => {
-			if (this.window.ga) {
-				this.window.ga('send', 'exception', {
-					exDescription: err.status + ': ' + err.message,
-					exFatal: false
+			if (this.window.analytics) {
+				this.window.analytics('event', 'exception', {
+					description: err.status + ': ' + err.message,
+					fatal: false
 				});
 			}
 
@@ -35,10 +35,10 @@ class Authentication {
 					return false;
 				}
 			}, err => {
-				if (this.window.ga) {
-					this.window.ga('send', 'exception', {
-						exDescription: err.status + ': ' + err.data,
-						exFatal: false
+				if (this.window.analytics) {
+					this.window.analytics('event', 'exception', {
+						description: err.status + ': ' + err.data,
+						fatal: false
 					});
 				}
 
@@ -49,6 +49,14 @@ class Authentication {
 	logout() {
 		delete this.localStorage.currentUser;
 		this.http.defaults.headers.common.Authorization = '';
+	}
+
+	getTokenData(key) {
+		const encodedToken = this.localStorage.currentUser.token;
+		const decodedToken = atob(encodedToken.split('.')[1]);
+		const data = JSON.parse(decodedToken);
+		
+		return data[key];
 	}
 }
 

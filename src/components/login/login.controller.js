@@ -1,5 +1,3 @@
-// import {createUser} from '../../api/usersApi';
-
 export default class LoginController {
   constructor($location, authentication) {
 		this.location = $location;
