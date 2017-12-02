@@ -5,7 +5,7 @@ class Authentication {
 		this.http = $http;
 		this.window = $window;
 		this.localStorage = $localStorage;
-		this.api = 'http://127.0.0.1:5000/'
+		this.api = 'http://127.0.0.1:5000/';
 	}
 	
 	register(email, password) {

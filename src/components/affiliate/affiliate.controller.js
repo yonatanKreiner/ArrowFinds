@@ -1,16 +1,25 @@
 export default class AffiliateController {
-  constructor(authentication) {
-		this.api = 'http://127.0.0.1:5000/';
+  constructor(authentication, userdata) {
 		this.authentication = authentication;
+		this.userdata = userdata;
+		this.api = 'http://127.0.0.1:5000/';
 		this.userCode = this.getUserCode();
 	}
 	
 	getUserCode() {
 		return this.authentication.getTokenData('sub');
 	}
+
+	getAffiliateData() {
+		const affiliateData = this.userdata.getAffiliateData();
+		this.paypal = affiliateData.paypal;
+		this.usersReferred = affiliateData.users_referred;
+		this.profit = affiliateData.profit;
+		this.checkout = affiliateData.checkout;
+	}
 }
 
-AffiliateController.$inject = ['authentication'];
+AffiliateController.$inject = ['authentication', 'userdata'];
 
 
 
