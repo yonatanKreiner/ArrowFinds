@@ -1,8 +1,7 @@
-routing.$inject = ['$urlRouterProvider', '$locationProvider', '$anchorScrollProvider'];
+routing.$inject = ['$urlRouterProvider', '$locationProvider'];
 
-export default function routing($urlRouterProvider, $locationProvider, $anchorScrollProvider) {
+export default function routing($urlRouterProvider, $locationProvider) {
 	$locationProvider.hashPrefix('');
 	$locationProvider.html5Mode(true);
 	$urlRouterProvider.otherwise('/');
-	$anchorScrollProvider.disableAutoScrolling();
 }

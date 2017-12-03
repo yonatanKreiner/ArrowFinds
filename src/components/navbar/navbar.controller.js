@@ -1,18 +1,15 @@
 export default class NavbarController {
-  constructor($location, $anchorScroll, $http) {
+	constructor($location) {
 		this.location = $location;
-		this.scroll = $anchorScroll;
-		this.http = $http;
+		this.$ = window.$;
 		this.LoginStatus = 'Login';
 		this.loggedIn = false;
-  }
+	}
 
-  gotoAnchor(id) {
-		if (this.location.hash() !== id) {
-			this.location.hash(id);
-		} else {
-			this.scroll();
-		}
+	gotoAnchor(id) {
+		this.$('html, body').animate({
+			scrollTop: this.$('#' + id).offset().top
+		}, 1000);
 	}
 
 	login() {
@@ -26,4 +23,4 @@ export default class NavbarController {
 	}
 }
 
-NavbarController.$inject = ['$location', '$anchorScroll', '$http'];
+NavbarController.$inject = ['$location'];
