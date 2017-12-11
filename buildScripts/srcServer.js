@@ -21,7 +21,7 @@ app.use('/images',
 )
 
 app.get('/favicon.ico', (req, res) => 	
-res.sendFile(path.join(__dirname, '../src/images/favicon.ico'))
+res.sendFile(path.join(__dirname, '../src/favicon.ico'))
 )
 
 app.get('/*', (req, res) => 	
