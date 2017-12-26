@@ -3,19 +3,15 @@ export default class AffiliateController {
 		this.authentication = authentication;
 		this.userdata = userdata;
 		this.api = 'http://127.0.0.1:5000/';
-		this.userCode = this.getUserCode();
-	}
-	
-	getUserCode() {
-		return this.authentication.getTokenData('sub');
+		this.user = this.getUserData();
+		this.userdata.getAffiliateData().then(result => this.affiliateData = result);
 	}
 
-	getAffiliateData() {
-		const affiliateData = this.userdata.getAffiliateData();
-		this.paypal = affiliateData.paypal;
-		this.usersReferred = affiliateData.users_referred;
-		this.profit = affiliateData.profit;
-		this.checkout = affiliateData.checkout;
+	getUserData() {
+		return {
+			userCode: this.authentication.getTokenData('sub'),
+			email: this.userdata.getEmail()
+		}
 	}
 }
 

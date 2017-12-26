@@ -21,6 +21,10 @@ class UserData {
 		}
 	}
 
+	getEmail() {
+		return this.localStorage.currentUser.email;
+	}
+
 	getAffiliateData() {
 		return this.http.get(this.api + 'affiliates')
 		.then(response => {

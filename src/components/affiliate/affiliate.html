@@ -2,15 +2,15 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
-				<h1>Welcome to the affiliate page: {{affiliate.email}} </h1>
+				<h1>Welcome to the affiliate page: {{affiliate.user.email}} </h1>
 				<div>
 					<h2>Here is your ref code: </h2>
 					<div>
-						<code><h4>https://arrowfinds.com/aff?ref={{affiliate.userCode}}</h4></code>
+						<code><h4>https://arrowfinds.com/aff?ref={{affiliate.user.userCode}}</h4></code>
 					</div>
 					<br/>
 					<h5>You Have:
-						<span style="color:green">{{affiliate.needpay | currency:'USD$':2}}</span>
+						<span style="color:green">{{affiliate.affiliateData.needpay | currency:'USD$':2}}</span>
 					</h5>
 					<button class="btn btn-primary">
 						<i class="fa fa-credit-card-alt"></i> Checkout</button>
@@ -19,10 +19,10 @@
 					</h5>
 				</div>
 				<div>
-					<h4>Precentage: {{(affiliate.profit / affiliate.stage ) * 100 | currency:'%':2}} </h4>
+					<h4>Precentage: {{affiliate.affiliateData.levelPercentage | currency:'%':2}} </h4>
 					<div style="display: flex">
 						<!-- <img src="/images/rewardmoney.png" /> -->
-						<h5 style="margin-top: 10%">{{affiliate.reward}}</h5>
+						<h5 style="margin-top: 10%">{{affiliate.affiliateData.reward}}</h5>
 					</div>
 				</div>
 			</div>
@@ -32,25 +32,25 @@
 				<div class='panel-title text-Left '></div>
 				<div class='row skill-row'>
 					<span class='skillLabel'>To Next level: </span>
-					<code>More - {{(affiliate.stage - affiliate.profit) | currency:'USD$':2}} To go!</code>
+					<code>More - {{(affiliate.affiliateData.nextLevel) | currency:'$':2}} To go!</code>
 					<br/>
 					<span class='skillData-Wrapper'>
 						<span class='skillData bg' style="background-color: green" data-percent='100'>
-							{{affiliate.level}} - {{(affiliate.profit / affiliate.userStage) * 100 | currency:'%':2}}</span>
+							{{affiliate.affiliateData.level}} - {{affiliate.affiliateData.levelPercentage | currency:'%':2}}</span>
 					</span>
 				</div>
 				<div class='row skill-row'>
 					<span class='skillLabel'>Total Sold:</span>
-					<code>Your Profit - {{affiliate.needpay | currency:'USD$':2}}</code>
+					<code>Your Profit - {{affiliate.affiliateData.payout | currency:'$':2}}</code>
 					<br/>
 					<span class='skillData-Wrapper'>
-						<span class='skillData bg-rust' data-percent='100'>{{affiliate.profit | currency:'USD$':2}}</span>
+						<span class='skillData bg-rust' data-percent='100'>{{affiliate.affiliateData.profit | currency:'$':2}}</span>
 					</span>
 				</div>
 				<div class='row skill-row'>
 					<span class='skillLabel'>Ref Joined Count:</span>
 					<span class='skillData-Wrapper'>
-						<span class='skillData bg-blue' data-percent='100'>RefCounts - {{affiliate.usersReferred}}</span>
+						<span class='skillData bg-blue' data-percent='100'>RefCounts - {{affiliate.affiliateData.usersReferred}}</span>
 					</span>
 				</div>
 			</div>
