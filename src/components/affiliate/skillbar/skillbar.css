@@ -1,0 +1,22 @@
+.skill-row {
+	margin: 0 0 20px 0; 
+}
+
+.skillLabel {
+	float: left;
+	width: 100%;
+	color: black; 
+}
+	
+.skillData, .skillData-Wrapper {
+	line-height: 0.1 0.7em;
+	height: 0.1 0.7em;
+	width: .1em;
+	float: left;
+	color: white;
+	text-align: center; 
+}
+
+.skillData-Wrapper {
+	width: 100%; 
+}

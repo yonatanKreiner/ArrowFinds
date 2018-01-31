@@ -1,21 +1,22 @@
 export default class NavbarController {
-	constructor($location) {
+	constructor($location, authentication) {
 		this.location = $location;
+		this.authentication = authentication;
 		this.$ = window.$;
-		this.LoginStatus = 'Login';
-		this.loggedIn = false;
 	}
 
 	gotoAnchor(id) {
-		this.$('html, body').animate({
-			scrollTop: this.$('#' + id).offset().top
-		}, 1000);
+		if (this.$('#' + id).offset() !== undefined){
+			this.$('html, body').animate({
+				scrollTop: this.$('#' + id).offset().top
+			}, 1000);
+		}
 	}
 
 	login() {
-		if (this.loggedIn) {
+		if (this.authentication.loggedIn) {
+			this.authentication.logout();
 			this.location.path('/');
-			this.LoginStatus = 'Login';
 		} else {
 			this.location.hash('');
 			this.location.path('/login');
@@ -23,4 +24,4 @@ export default class NavbarController {
 	}
 }
 
-NavbarController.$inject = ['$location'];
+NavbarController.$inject = ['$location', 'authentication'];

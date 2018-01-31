@@ -1,3 +1,5 @@
+//import angular from 'angular';
+
 export default class AffiliateController {
   constructor(authentication, userdata) {
 		this.authentication = authentication;
@@ -5,6 +7,9 @@ export default class AffiliateController {
 		this.api = 'http://127.0.0.1:5000/';
 		this.user = this.getUserData();
 		this.userdata.getAffiliateData().then(result => this.affiliateData = result);
+		// this.reward = "When passing this limit "+ this.userStage + " Get " + this.userStage*0.05 + "$USD as Reword!"
+		//this.$ = window.$;
+		//this.loadSkillGraphs();
 	}
 
 	getUserData() {
@@ -13,6 +18,22 @@ export default class AffiliateController {
 			email: this.userdata.getEmail()
 		}
 	}
+
+	// loadSkillGraphs() {
+	// 	angular.forEach(this.$('.skillData'), (value, key) => {
+	// 		const element = angular.element(value)[0].attributes['data-percent'];
+	// 		let counter = 0;
+
+	// 		if (counter++ < element['percent']) {
+	// 			setTimeout(this.changeGraphStyle(element, counter), 10);
+	// 		}
+	// 	});
+	// }
+
+	// changeGraphStyle(element, counter) {
+	// 	// element.css('width', cnt + '%');
+	// 	element.css('width', counter + '%');
+	// }
 }
 
 AffiliateController.$inject = ['authentication', 'userdata'];

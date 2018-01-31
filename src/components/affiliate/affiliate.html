@@ -19,9 +19,9 @@
 					</h5>
 				</div>
 				<div>
-					<h4>Precentage: {{affiliate.affiliateData.levelPercentage | currency:'%':2}} </h4>
+					<h4>Precentage: {{affiliate.affiliateData.levelPercentage * 100 | currency:'%':2}} </h4>
 					<div style="display: flex">
-						<!-- <img src="/images/rewardmoney.png" /> -->
+						<img src="/images/money.png" />
 						<h5 style="margin-top: 10%">{{affiliate.affiliateData.reward}}</h5>
 					</div>
 				</div>
@@ -35,7 +35,7 @@
 					<code>More - {{(affiliate.affiliateData.nextLevel) | currency:'$':2}} To go!</code>
 					<br/>
 					<span class='skillData-Wrapper'>
-						<span class='skillData bg' style="background-color: green" data-percent='100'>
+						<span class='skillData bg' style="background-color: green" percent='100'>
 							{{affiliate.affiliateData.level}} - {{affiliate.affiliateData.levelPercentage | currency:'%':2}}</span>
 					</span>
 				</div>
@@ -44,15 +44,16 @@
 					<code>Your Profit - {{affiliate.affiliateData.payout | currency:'$':2}}</code>
 					<br/>
 					<span class='skillData-Wrapper'>
-						<span class='skillData bg-rust' data-percent='100'>{{affiliate.affiliateData.profit | currency:'$':2}}</span>
+						<span class='skillData bg-rust' percent='100'>{{affiliate.affiliateData.profit | currency:'$':2}}</span>
 					</span>
 				</div>
 				<div class='row skill-row'>
 					<span class='skillLabel'>Ref Joined Count:</span>
 					<span class='skillData-Wrapper'>
-						<span class='skillData bg-blue' data-percent='100'>RefCounts - {{affiliate.affiliateData.usersReferred}}</span>
+						<span class='skillData bg-blue' percent='100'>RefCounts - {{affiliate.affiliateData.usersReferred}}</span>
 					</span>
 				</div>
+				<skillbar title='Ref Joined Count:' color='#0f434c' id='test' percentage='RefCounts - {{affiliate.affiliateData.usersReferred}}'></skillbar>
 			</div>
 		</div>
 	</div>
@@ -62,26 +63,7 @@
 
 <!-- <script>
 // ASK kriner how to summon this thing
-function loadSkillgraph() {
-$(".skillData").each(function(index, element) {
-    // element == this
-    var mydata = $(element).data();
-    var cnt = 0;
 
-    //recursive call with a time delay so user can see graph draw.
-    function go() {
-        if (cnt++ < mydata['percent']) {
-            setTimeout(go, 10);
-        }
-        $(element).css('width', cnt + '%');
-
-    }
-
-    go();
-
-});
-
-}
 
 //loadSkillgraph();
 </script> -->

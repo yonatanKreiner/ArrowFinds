@@ -6,6 +6,7 @@ class Authentication {
 		this.window = $window;
 		this.localStorage = $localStorage;
 		this.api = 'http://127.0.0.1:5000/';
+		this.loggedIn = false;
 	}
 	
 	register(email, password) {
@@ -30,6 +31,8 @@ class Authentication {
 				if (response.data) {
 					this.localStorage.currentUser = { email: email, token: response.data };
 					this.http.defaults.headers.common.Authorization = 'Bearer ' + response.data;
+					this.loggedIn = true;
+
 					return true;
 				} else {
 					return false;
@@ -49,6 +52,7 @@ class Authentication {
 	logout() {
 		delete this.localStorage.currentUser;
 		this.http.defaults.headers.common.Authorization = '';
+		this.loggedIn = false;
 	}
 
 	getTokenData(key) {
