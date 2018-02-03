@@ -1,18 +1,20 @@
 export default class SkillbarController {
 	constructor() {
 		this.$ = window.$;
+		this.width = 0;
 	}
 
-	loadProgressBar(id) {
-		const element = this.$('#' + id)[0];
-		const percentage = element.attributes['percentage'];
-		let loadingPercentage = 0;
+	loadBar() {
+		this.width++;
+	}
 
-		if (loadingPercentage++ < percentage) {
-			setTimeout((element, loadingPercentage) => {
-				element.css('width', loadingPercentage + '%');
-			}, 10);
-		}
+	loadProgressBar(id, percentage) {
+		this.width
+		let self = this;
+
+		for (let loadingPercentage = 0; loadingPercentage <= percentage; loadingPercentage++) {
+			setInterval(self.loadBar(), 100);
+		}	
 	}
 }
 

@@ -1,14 +1,14 @@
-.skill-row {
+/* .skillbar-row {
 	margin: 0 0 20px 0; 
 }
 
-.skillLabel {
+.skillbar-title {
 	float: left;
 	width: 100%;
 	color: black; 
-}
+} 
 	
-.skillData, .skillData-Wrapper {
+.skillbar-data, .skillbar-wrapper {
 	line-height: 0.1 0.7em;
 	height: 0.1 0.7em;
 	width: .1em;
@@ -17,6 +17,23 @@
 	text-align: center; 
 }
 
-.skillData-Wrapper {
+.skillbar-wrapper {
 	width: 100%; 
+} */
+
+.skillbar-row {
+	width: 300px;
+}
+
+.skillbar-wrapper {
+	width: 100%;
+	background-color: lightgray;
+}
+
+.skillbar-data {
+	color: white;
+	text-align: center;
+	width: 0;
+	transition: width 5s;
+	-webkit-transition: width 5s; /* Safari */
 }

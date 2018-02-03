@@ -5,15 +5,14 @@ function skillbar() {
   return {
     restrict: 'E',
 		template: template,
-		controller: 'SkillbarController',
-		controllerAs: 'skillbar',
+		// controller: 'SkillbarController',
+		// controllerAs: 'skillbar',
 		replace: true,
 		scope: {
 			title: '@',
 			color: '@',
-			id: '@',
-			percentage: '@'
-    }
+			percentage: '='
+		}
   }
 }
 
