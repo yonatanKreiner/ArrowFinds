@@ -1,4 +1,4 @@
-//import angular from 'angular';
+import angular from 'angular';
 
 export default class AffiliateController {
   constructor(authentication, userdata) {
@@ -8,8 +8,8 @@ export default class AffiliateController {
 		this.user = this.getUserData();
 		this.userdata.getAffiliateData().then(result => this.affiliateData = result);
 		// this.reward = "When passing this limit "+ this.userStage + " Get " + this.userStage*0.05 + "$USD as Reword!"
-		//this.$ = window.$;
-		//this.loadSkillGraphs();
+		this.$ = window.$;
+		this.loadSkillGraphs();
 	}
 
 	getUserData() {
@@ -19,21 +19,20 @@ export default class AffiliateController {
 		}
 	}
 
-	// loadSkillGraphs() {
-	// 	angular.forEach(this.$('.skillData'), (value, key) => {
-	// 		const element = angular.element(value)[0].attributes['data-percent'];
-	// 		let counter = 0;
+	loadSkillGraphs() {
+		angular.forEach(this.$('.skillbar-data'), (value, key) => {
+			const element = angular.element(value)[0].attributes['percent'];
+			let counter = 0;
 
-	// 		if (counter++ < element['percent']) {
-	// 			setTimeout(this.changeGraphStyle(element, counter), 10);
-	// 		}
-	// 	});
-	// }
+			if (counter++ <= element['percent']) {
+				setTimeout(this.changeGraphStyle(element, counter), 10);
+			}
+		});
+	}
 
-	// changeGraphStyle(element, counter) {
-	// 	// element.css('width', cnt + '%');
-	// 	element.css('width', counter + '%');
-	// }
+	changeGraphStyle(element, counter) {
+		element.css('width', counter + '%');
+	}	
 }
 
 AffiliateController.$inject = ['authentication', 'userdata'];
