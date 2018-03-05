@@ -1,10 +1,8 @@
-import path from 'path'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-export default {
-	debug: true,
+module.exports =  {
 	devtool: 'inline-source-map',
-	noInfo: false,
 	entry: [
 		path.resolve(__dirname, 'src/index')
 	],
@@ -22,10 +20,18 @@ export default {
 		})
 	],
 	module: {
-		loaders: [
-			{test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
-			{test: /\.css$/, loaders: ['style', 'css']},
-			{test: /\.html$/, exclude: /index.html/, loaders: ['html']}
+		rules: [
+			{test: /\.js$/, exclude: /node_modules/, use: ['babel-loader']},
+			{test: /\.css$/, use: ['style-loader', 'css-loader']},
+			{test: /\.html$/, exclude: /index.html/, use: ['html-loader']},
+			{test: /\.(png|jp(e*)g|png|woff|woff2|eot|ttf|svg)$/, use: ['url-loader']}
 		]
+	},
+	devServer: {
+		hot: true,
+		inline: true,
+		port: 3000,
+		historyApiFallback: true,
+		open: true
 	}
 }
