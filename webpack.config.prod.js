@@ -38,16 +38,6 @@ module.exports =  {
 
 		new webpack.HashedModuleIdsPlugin(),
 
-		// Create a seperate bundle of vendor libraries to cache seperately
-		new webpack.optimize.CommonsChunkPlugin({
-			name: 'vendor',
-			filename: 'vendor.[chunkhash].js',
-			minChunks (module) {
-				return module.context &&
-					module.context.indexOf('node_modules') >= 0;
-			}
-		}),
-
 		// Create HTML file that includes reference to bundle.js
 		new HtmlWebpackPlugin({
 			template: 'src/index.html',
