@@ -16,7 +16,7 @@
     "move-build-files": "npm-run-all --parallel move-scripts move-images",
     "prebuild": "npm-run-all clean-dist move-build-files lint",
     "build": "webpack -p --config ./webpack.config.prod.js --progress",
-    "postbuild": "babel-node buildScripts/distServer.js",
+    "serve": "babel-node buildScripts/distServer.js",
     "deploy": "git subtree push --prefix dist heroku master"
   },
   "engines": {
