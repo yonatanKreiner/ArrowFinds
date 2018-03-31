@@ -1,6 +1,8 @@
 <div class='row skillbar-row'>
 	<div class='skillbar-title'>{{title}}</div>
 	<div class='skillbar-wrapper'>
-		<div class='skillbar-data' percent='100'>{{percentage}}</div>
+		<div id='{{test}}' class='skillbar-data' percent='100' 
+		ng-style="{'background-color': '{{color}}', 'width': '{{percentage}}%'}" 
+			ng-init="skillbar.loadProgressBar(test, percentage)">{{percentage}}</div>
 	</div>
 </div>
