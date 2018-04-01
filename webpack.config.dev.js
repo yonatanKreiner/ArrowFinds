@@ -19,6 +19,9 @@ module.exports =  {
 			inject: true
 		})
 	],
+	optimization: {
+		namedModules: true
+	},
 	module: {
 		rules: [
 			{test: /\.js$/, exclude: /node_modules/, use: ['babel-loader']},
@@ -28,6 +31,7 @@ module.exports =  {
 		]
 	},
 	devServer: {
+		contentBase: './src',
 		hot: true,
 		inline: true,
 		port: 3000,

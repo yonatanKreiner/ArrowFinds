@@ -24,8 +24,12 @@ module.exports =  {
 		extensions: ['.js']
 	},
 	optimization: {
+		concatenateModules: true,
+		noEmitOnErrors: true,
 		splitChunks: {
       cacheGroups: {
+				name: 'vendor',
+        minChunks: 2,
         styles: {
           name: 'styles',
           test: /\.css$/,
@@ -45,14 +49,9 @@ module.exports =  {
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
+      filename: "[name].css"
     }),
 		// new BundleAnalyzerPlugin({analyzerMode: 'static', openAnalyzer: true}),
-
-		// new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify('production') } }),	
-
-		new webpack.optimize.ModuleConcatenationPlugin(),
 
 		new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
 
