@@ -2,8 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 // const PreloadWebpackPlugin = require('preload-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -21,7 +23,31 @@ module.exports =  {
 	resolve: {
 		extensions: ['.js']
 	},
+	optimization: {
+		splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+					enforce: true
+				}
+			}
+		},
+		minimizer: [
+			new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: false
+      }),
+      new OptimizeCSSAssetsPlugin({})
+		]
+	},
 	plugins: [
+		new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    }),
 		// new BundleAnalyzerPlugin({analyzerMode: 'static', openAnalyzer: true}),
 
 		// new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify('production') } }),	
@@ -29,9 +55,6 @@ module.exports =  {
 		new webpack.optimize.ModuleConcatenationPlugin(),
 
 		new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
-
-		// Generate an external css file with a hash in the filename
-		new ExtractTextPlugin('[name].[contenthash].css'),
 
 		// Hash the files using MD5 so that their names change when the content changes
 		new WebpackMd5Hash(),
@@ -81,18 +104,7 @@ module.exports =  {
 	module: {
 		rules: [
 			{test: /\.js$/, exclude: /node_modules/, use: ['babel-loader']},
-			{
-				test: /\.css$/, 
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: [
-						{ 
-							loader: 'css-loader',
-							options: { minimize: true } 
-						}
-					]
-				})
-			},
+			{test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader']},
 			{test: /\.html$/, exclude: /index.html/, use: ['html-loader']},
 			{test: /\.(png|jp(e*)g|png|woff|woff2|eot|ttf|svg)$/, use: ['url-loader']}
 		]
