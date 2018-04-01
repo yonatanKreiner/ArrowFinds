@@ -1,11 +1,11 @@
 const path = require('path');
-const webpack = require('webpack');
+// const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackMd5Hash = require('webpack-md5-hash');
+// const WebpackMd5Hash = require('webpack-md5-hash');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
-const PreloadWebpackPlugin = require('preload-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+// const PreloadWebpackPlugin = require('preload-webpack-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports =  {
 	entry: {
