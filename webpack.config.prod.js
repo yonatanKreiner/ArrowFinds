@@ -30,8 +30,8 @@ module.exports =  {
 
 		// new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
 
-		// // Generate an external css file with a hash in the filename
-		// new ExtractTextPlugin('[name].[contenthash].css'),
+		// Generate an external css file with a hash in the filename
+		new ExtractTextPlugin('[name].[contenthash].css'),
 
 		// // Hash the files using MD5 so that their names change when the content changes
 		// new WebpackMd5Hash(),
