@@ -22,21 +22,21 @@ module.exports =  {
 		extensions: ['.js']
 	},
 	plugins: [
-		new BundleAnalyzerPlugin({analyzerMode: 'static', openAnalyzer: true}),
+		// new BundleAnalyzerPlugin({analyzerMode: 'static', openAnalyzer: true}),
 
-		new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify('production') } }),	
+		// new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify('production') } }),	
 
-		new webpack.optimize.ModuleConcatenationPlugin(),
+		// new webpack.optimize.ModuleConcatenationPlugin(),
 
-		new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
+		// new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
 
-		// Generate an external css file with a hash in the filename
-		new ExtractTextPlugin('[name].[contenthash].css'),
+		// // Generate an external css file with a hash in the filename
+		// new ExtractTextPlugin('[name].[contenthash].css'),
 
-		// Hash the files using MD5 so that their names change when the content changes
-		new WebpackMd5Hash(),
+		// // Hash the files using MD5 so that their names change when the content changes
+		// new WebpackMd5Hash(),
 
-		new webpack.HashedModuleIdsPlugin(),
+		// new webpack.HashedModuleIdsPlugin(),
 
 		// Create HTML file that includes reference to bundle.js
 		new HtmlWebpackPlugin({
@@ -62,21 +62,21 @@ module.exports =  {
 			trackJSToken: 'c052939146f74fefbd3b4564797c0b10'
 		}),
 
-		new webpack.LoaderOptionsPlugin({
-      minimize: true,
-      debug: false,
-		}),
+		// new webpack.LoaderOptionsPlugin({
+    //   minimize: true,
+    //   debug: false,
+		// }),
 
-		new PreloadWebpackPlugin({
-			rel: 'preload',
-			as: 'script',
-			include: 'all',
-			fileBlacklist: [/\.(css|map)$/, /base?.+/]
-		}),
+		// new PreloadWebpackPlugin({
+		// 	rel: 'preload',
+		// 	as: 'script',
+		// 	include: 'all',
+		// 	fileBlacklist: [/\.(css|map)$/, /base?.+/]
+		// }),
 
-		new ScriptExtHtmlWebpackPlugin({
-			defaultAttribute: 'defer'
-		})
+		// new ScriptExtHtmlWebpackPlugin({
+		// 	defaultAttribute: 'defer'
+		// })
 	],
 	module: {
 		rules: [
