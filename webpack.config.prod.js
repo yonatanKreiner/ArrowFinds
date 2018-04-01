@@ -1,9 +1,9 @@
 const path = require('path');
-// const webpack = require('webpack');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const WebpackMd5Hash = require('webpack-md5-hash');
+const WebpackMd5Hash = require('webpack-md5-hash');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-// const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 // const PreloadWebpackPlugin = require('preload-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -33,10 +33,10 @@ module.exports =  {
 		// Generate an external css file with a hash in the filename
 		new ExtractTextPlugin('[name].[contenthash].css'),
 
-		// // Hash the files using MD5 so that their names change when the content changes
-		// new WebpackMd5Hash(),
+		// Hash the files using MD5 so that their names change when the content changes
+		new WebpackMd5Hash(),
 
-		// new webpack.HashedModuleIdsPlugin(),
+		new webpack.HashedModuleIdsPlugin(),
 
 		// Create HTML file that includes reference to bundle.js
 		new HtmlWebpackPlugin({
@@ -74,9 +74,9 @@ module.exports =  {
 		// 	fileBlacklist: [/\.(css|map)$/, /base?.+/]
 		// }),
 
-		// new ScriptExtHtmlWebpackPlugin({
-		// 	defaultAttribute: 'defer'
-		// })
+		new ScriptExtHtmlWebpackPlugin({
+			defaultAttribute: 'defer'
+		})
 	],
 	module: {
 		rules: [
