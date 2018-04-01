@@ -27,9 +27,9 @@ module.exports =  {
 		concatenateModules: true,
 		noEmitOnErrors: true,
 		splitChunks: {
+			name: 'vendor',
+			minChunks: 2,
       cacheGroups: {
-				name: 'vendor',
-        minChunks: 2,
         styles: {
           name: 'styles',
           test: /\.css$/,
