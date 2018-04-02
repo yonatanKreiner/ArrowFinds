@@ -34,8 +34,26 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-  deployment:
-    production:
-      branch: master
-      commands:
-        - yarn run deploy
+  deploy:
+    machine:
+        enabled: true
+    working_directory: ~/repo
+    environment:
+      HEROKU_APP: "arrowfinds"
+    steps:
+      - run:
+          command: |
+            yarn run deploy
+            sleep 5  # sleep for 5 seconds to wait for dynos
+            heroku restart
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
