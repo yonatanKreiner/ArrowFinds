@@ -1,13 +1,9 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackMd5Hash = require('webpack-md5-hash');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-// const PreloadWebpackPlugin = require('preload-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports =  {
 	entry: {
@@ -51,14 +47,6 @@ module.exports =  {
 		new MiniCssExtractPlugin({
       filename: "[name].css"
     }),
-		// new BundleAnalyzerPlugin({analyzerMode: 'static', openAnalyzer: true}),
-
-		new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
-
-		// Hash the files using MD5 so that their names change when the content changes
-		new WebpackMd5Hash(),
-
-		new webpack.HashedModuleIdsPlugin(),
 
 		// Create HTML file that includes reference to bundle.js
 		new HtmlWebpackPlugin({
@@ -83,18 +71,6 @@ module.exports =  {
 			googleAnalyticsToken: 'UA-108800671-1',
 			trackJSToken: 'c052939146f74fefbd3b4564797c0b10'
 		}),
-
-		// new webpack.LoaderOptionsPlugin({
-    //   minimize: true,
-    //   debug: false,
-		// }),
-
-		// new PreloadWebpackPlugin({
-		// 	rel: 'preload',
-		// 	as: 'script',
-		// 	include: 'all',
-		// 	fileBlacklist: [/\.(css|map)$/, /base?.+/]
-		// }),
 
 		new ScriptExtHtmlWebpackPlugin({
 			defaultAttribute: 'defer'
