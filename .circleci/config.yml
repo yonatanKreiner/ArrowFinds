@@ -34,9 +34,8 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-        
-    artifacts:
-      - "dist"
+      - store_artifacts:
+          path: dist
   deploy:
     machine:
         enabled: true
