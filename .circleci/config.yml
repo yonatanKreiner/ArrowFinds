@@ -37,14 +37,17 @@ jobs:
       - store_artifacts:
           path: dist
           destination: dist
+      - run:
+          name: Deploy test
+          command: |
+              git subtree push --prefix dist https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP.git master
+              sleep 5  # sleep for 5 seconds to wait for dynos
+              heroku restart
   deploy:
     machine:
         enabled: true
     working_directory: ~/repo
-    environment:
-      HEROKU_APP: "arrowfinds"
     steps:
-      - checkout
       - run:
           name: Deploy to Heroku
           command: |
