@@ -43,7 +43,7 @@ jobs:
     steps:
       - run:
           command: |
-            yarn run deploy
+            git subtree push --prefix dist heroku master
             sleep 5  # sleep for 5 seconds to wait for dynos
             heroku restart
 workflows:
