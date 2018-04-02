@@ -42,17 +42,11 @@ jobs:
       HEROKU_APP: "arrowfinds"
     steps:
       - checkout
-      - add_ssh_keys:  # add key from CircleCI account based on fingerprint
-          fingerprints:
-            - "51:5f:94:59:fa:a4:33:ce:f0:78:2d:6c:e0:41:36:7c"
       - run:
-          name: Run Setup Script
-          command: bash .circleci/setup-heroku.sh
-      - run:
-          name: Deploy Master to Heroku
-          command: |  # this command is framework-dependent and may vary
-            heroku git:remote -a $HEROKU_APP
-            git subtree push --prefix dist --force git@heroku.com:$HEROKU_APP.git HEAD:refs/heads/master
+        name: Deploy to Heroku
+        command: |
+            git subtree push --prefix dist https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP.git HEAD:refs/heads/master
+            sleep 5  # sleep for 5 seconds to wait for dynos
             heroku restart
 workflows:
   version: 2
