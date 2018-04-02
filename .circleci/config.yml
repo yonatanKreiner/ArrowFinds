@@ -36,6 +36,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - store_artifacts:
           path: dist
+          destination: dist
   deploy:
     machine:
         enabled: true
