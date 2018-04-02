@@ -34,3 +34,8 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+  deployment:
+    production:
+      branch: master
+      commands:
+        - yarn run deploy
